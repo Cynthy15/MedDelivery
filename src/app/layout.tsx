@@ -5,8 +5,23 @@ import { cn } from "@/lib/utils";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata = {
-  title: 'meddelivery',
-  description: 'MedDelivery application',
+  title: "Med Delivery System | Fast & Reliable Medicine Delivery",
+  description:
+    "Order medicines online and get fast, safe, and reliable delivery from trusted pharmacies.",
+  keywords: [
+    "medicine delivery",
+    "online pharmacy",
+    "med delivery system",
+    "healthcare app",
+    "drug delivery",
+  ],
+  openGraph: {
+    title: "Med Delivery System",
+    description: "Fast and reliable medicine delivery platform.",
+    type: "website",
+    url: "https://your-domain.com",
+    images: ["/assets/med-delivery-preview.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
