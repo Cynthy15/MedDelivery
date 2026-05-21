@@ -146,7 +146,7 @@ export async function apiClient<T = unknown>(
     let message = `Request failed (${res.status})`;
     try {
       const err = await res.json();
-      console.error('[apiClient] error body:', JSON.stringify(err, null, 2));
+      console.error('[apiClient] API error', { endpoint, status: res.status, body: err });
 
       // Field errors nested in err.data (our backend's validation shape)
       const dataErrors =

@@ -1,5 +1,6 @@
 import js from '@eslint/js'
 import globals from 'globals'
+import nextPlugin from '@next/eslint-plugin-next'
 import reactHooks from 'eslint-plugin-react-hooks'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
@@ -7,6 +8,7 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 export default defineConfig([
   globalIgnores(['dist', '.next', 'node_modules', 'next-env.d.ts']),
   js.configs.recommended,
+  nextPlugin.configs.recommended,
   ...tseslint.configs.recommended,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
@@ -27,6 +29,8 @@ export default defineConfig([
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      'react-hooks/set-state-in-effect': 'off',
+      'preserve-caught-error': 'off',
     },
   },
   {

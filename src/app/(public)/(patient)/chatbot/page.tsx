@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Loader2, MessageSquare, Send, Bot, User } from "lucide-react";
+import { Loader2, Send, Bot, User } from "lucide-react";
 import PatientAppShell from "@/components/layout/PatientAppShell";
 import { askChatbot } from "@/services/patientApi";
 

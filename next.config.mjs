@@ -11,7 +11,9 @@ const __dirname = path.dirname(__filename);
  */
 const nextConfig = {
   reactStrictMode: true,
-  allowedDevOrigins: ["192.168.1.77"],
+  // Allow additional dev origins for HMR when accessing the dev server
+  // from other devices on the LAN (e.g., 192.168.1.148:3001).
+  allowedDevOrigins: ["192.168.1.77", "192.168.1.148", "192.168.1.148:3001"],
   turbopack: {
     root: __dirname,
     resolveAlias: {

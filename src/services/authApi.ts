@@ -15,9 +15,20 @@ function normalizeRole(role: string): string {
 }
 
 export async function login(credentials: LoginRequest): Promise<AuthResponse> {
+  const payload: Record<string, string> = {
+    username: credentials.username,
+    password: credentials.password,
+  };
+
+  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(credentials.username);
+  const isPhone = /^\+?\d[\d\s-]{8,14}$/.test(credentials.username);
+
+  if (isEmail) payload.email = credentials.username;
+  if (isPhone) payload.phoneNumber = credentials.username;
+
   const res = await apiClient<Record<string, unknown>>('/api/auth/login', {
     method: 'POST',
-    body: JSON.stringify(credentials),
+    body: JSON.stringify(payload),
     skipAuth: true,
   });
 
